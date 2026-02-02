@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Team Page</title>
+</head>
+<body>
+
+<h1>{{ team_name }}</h1>
+
+<h3>Captain: {{ captain }}</h3>
+
+<h4>Players:</h4>
+<ul>
+    {% for p in players %}
+        <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+
+<h4>Trophies Won: {{ trophies }}</h4>
+
+{% if trophies <= 5 %}
+    <p style="color:red;">Team needs to work hard </p>
+{% else %}
+    <p style="color:green;">Great performance </p>
+{% endif %}
+
+<!--<a href="/">Back Home</a>-->
+
+</body>
+</html>
