@@ -43,15 +43,14 @@ class Product(models.Model):
         verbose_name_plural = "Products"
 
 
-class Resturants(models.Model):
+class Restaurant(models.Model):
     resturantName = models.CharField(max_length=100)
     resturantLocation = models.CharField(max_length=100)
     resturantRating = models.FloatField()
     resturantType = models.CharField(max_length=50, null=True)
 
-
     class Meta:
-        db_table = "resturants"
+        db_table = "restaurants"
         verbose_name_plural = "Restaurants"
 
 class Employee(models.Model):
@@ -81,70 +80,72 @@ class StudentProfile(models.Model):
     def __str__(self):
         return self.studentId.studentName    
 
-#cat --> #service
+#cat --> #service      
 
-    class Category(models.Model):
-        categoryName = models.CharField(max_length=100)
-    categoryDescription = models.TextField()
-    categoryStatus = models.BooleanField(default=True)
-    
-    class Meta:
-        db_table = "category"
-        verbose_name_plural = "Categories"
 
-    def __str__(self):
-        return self.categoryName    
 
-    class Service(models.Model):
-        serviceName = models.CharField(max_length=100)
-    serviceDescription = models.TextField()
-    servicePrice = models.IntegerField()
-    serviceStatus = models.BooleanField(default=True)
+#*/class Service(models.Model):
+    #serviceName = models.CharField(max_length=100)
+    #serviceDescription = models.TextField()
+    #servicePrice = models.IntegerField()
+    #serviceStatus = models.BooleanField(default=True)
     #after table creation adding new field
-    discount = models.IntegerField(null=True)
-    categoryId = models.ForeignKey(Category,on_delete=models.CASCADE)
+    #discount = models.IntegerField(null=True)
+    #categoryId = models.ForeignKey('Category', on_delete=models.CASCADE)
 
+    #class Meta:
+    #    db_table = "service"
+   #     verbose_name_plural = "Services"
+
+  #  def __str__(self):
+ #       return self.serviceName 
+
+#class Category(models.Model):
+   # categoryName = models.CharField(max_length=100)
+    #categoryDescription = models.TextField()
+    #categoryStatus = models.BooleanField(default=True)
+    
+   # class Meta:
+      #  db_table = "category"
+     #   verbose_name_plural = "Categories"
+
+   # def __str__(self):
+    #    return self.categoryName   
+
+class Member(models.Model):
+    member_name = models.CharField(max_length=100)
     
     class Meta:
-        db_table = "service"
-        verbose_name_plural = "Services"
-
+     db_table = "member"
+    verbose_name_plural = "Members"
+    
     def __str__(self):
-        return self.serviceName 
-    
-    class Member(models.Model):
-        member_name = models.CharField(max_length=100)
-    
-        class Meta:
-            db_table = "member"
-            verbose_name_plural = "Members"
-    
-        def __str__(self):
             return self.member_name
     
-    class MemberCard(models.Model):
-        member_card = models.OneToOneField(Member, on_delete=models.CASCADE)
-        card_number = models.CharField(max_length=20)
     
-        def __str__(self):
+class MemberCard(models.Model):
+    member = models.OneToOneField(Member, on_delete=models.CASCADE)
+    card_number = models.CharField(max_length=20)
+    
+    def __str__(self):
             return self.card_number
     
 
-    class Cate(models.Model):
-        cate_name = models.CharField(max_length=100)
+class Category(models.Model):
+    categoryName = models.CharField(max_length=100)
 
-        def __str__(self):
-            return self.cate_name
+    def __str__(self):
+            return self.categoryName
         
 
-    class Author(models.Model):
-        author_name = models.CharField(max_length=100)
+class Author(models.Model):
+    author_name = models.CharField(max_length=100)
 
-        def __str__(self):
+    def __str__(self):
             return self.author_name
         
-    class Book(models.Model):
-     cate = models.ForeignKey(Cate, on_delete=models.CASCADE)
+class Book(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
 
@@ -152,8 +153,8 @@ class StudentProfile(models.Model):
         return self.title
     
 
-    class Issue(models.Model):
-        member = models.ForeignKey(Member, on_delete=models.CASCADE)
+class Issue(models.Model):
+    member = models.ForeignKey(Member, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     issue_date = models.DateField()
 
@@ -202,13 +203,6 @@ class MemberCard(models.Model):
 
 
 # -------- Foreign Key Example --------
-
-class Category(models.Model):
-    categoryName = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.categoryName
-
 
 class Author(models.Model):
     author_name = models.CharField(max_length=100)
