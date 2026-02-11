@@ -1,15 +1,15 @@
 from django.db import models
 
-class employees(models.Model):
-    Name = models.CharField(max_length=100)
+# Create your models here.
+class Employee(models.Model):
+    name = models.CharField(max_length=100)
     age = models.IntegerField()
-    Salary = models.FloatField()
-    join_date = models.DateField()
+    salary = models.IntegerField()
+    join_date = models.DateField(auto_now_add=True)
     post = models.CharField(max_length=100)
-    Experience = models.IntegerField(null=True)
 
     class Meta:
-        db_table = "employees"
-
+        db_table = "employee"
+        
     def __str__(self):
-        return self.Name
+        return self.name
