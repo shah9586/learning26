@@ -1,14 +1,16 @@
 from django import forms
-from .models import Employee,Course
+from .models import Employee, Course
 
-#employee form
-#modelForm -->it will create form using model fileds
+
+# Employee Form
 class EmployeeForm(forms.ModelForm):
     class Meta:
         model = Employee
-        fields = '__all__' #[name,age,salary,joiningDate,post]
+        fields = '__all__'
 
+
+# Course Form
 class CourseForm(forms.ModelForm):
     class Meta:
         model = Course
-        fields = '__all__' 
+        fields = '__all__'
