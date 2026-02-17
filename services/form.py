@@ -1,7 +1,7 @@
 from django import forms
-from .models import Service
+from .models import Services
 
 class ServiceForm(forms.ModelForm):
     class Meta:
-        model = Service
+        model = Services
         fields = "__all__"

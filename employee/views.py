@@ -139,7 +139,7 @@ def sortemployees(request, id):
 
 def updateEmployee(request,id):
     #database existing user... id -->
-    employee = Employee.objects.get(id=id) #select * from employee where id = 1
+    employee = Employee.objects.get(id=id).oder_by(id).value()#select * from employee where id = 1
     
     if request.method == "POST":
         form = EmployeeForm(request.POST,instance=employee)

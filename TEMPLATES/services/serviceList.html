@@ -1,6 +1,6 @@
 <h2>Service List</h2>
 
-<a href="/service/create/">Add Service</a>
+<a href="/services/create/">Add Service</a>
 
 <table>
 <tr>
@@ -18,8 +18,8 @@
     <td>{{ s.price }}</td>
     <td>{{ s.duration }}</td>
     <td>
-        <a href="/service/update/{{ s.id }}/">Edit</a>
-        <a href="/service/delete/{{ s.id }}/">Delete</a>
+        <a href="/services/update/{{ s.id }}/">Update</a>
+        <a href="/services/delete/{{ s.id }}/">Delete</a>
     </td>
 </tr>
 {% endfor %}
