@@ -1,0 +1,15 @@
+{% extends 'health/base.html' %}
+
+{% block content %}
+<h2>My Reward Points</h2>
+
+<div class="card">
+    <p>Total Points: <strong>{{ total_points }}</strong></p>
+
+    <ul>
+        {% for r in rewards %}
+        <li>{{ r.activity }} - {{ r.points }} points</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

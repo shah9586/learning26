@@ -39,6 +39,7 @@ urlpatterns = [
    # path("employee/",include("employee.urls")),
     path("employee/", include("employee.urls")),
    path("services/", include("services.urls")),
+   path("health/", include("health.urls")),
 
     
 

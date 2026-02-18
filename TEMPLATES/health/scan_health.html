@@ -1,0 +1,12 @@
+{% extends 'health/base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>{{ product.product_name }}</h2>
+    <p><strong>Brand:</strong> {{ product.brand_name }}</p>
+    <p><strong>Calories:</strong> {{ nutrition.calories }}</p>
+    <p><strong>Sugar:</strong> {{ nutrition.sugar }}g</p>
+
+    <h3 class="score">Health Score: {{ score }}%</h3>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HealthyMe</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'health/css/style.css' %}">
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">HealthyMe</div>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'scan_product' %}">Scan</a></li>
+            <li><a href="{% url 'my_rewards' %}">Rewards</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

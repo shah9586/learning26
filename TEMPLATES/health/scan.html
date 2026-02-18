@@ -1,0 +1,11 @@
+{% extends 'health/base.html' %}
+
+{% block content %}
+<h2>Scan Product</h2>
+
+<form method="POST" class="form-box">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Scan</button>
+</form>
+{% endblock %}
