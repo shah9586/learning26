@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'employee',
     'services',
     'health',
+    'crispy_forms',
+    'crispy_bootstrap5',
     
 ]
 
@@ -132,3 +134,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "static" ,
    
 ]
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
