@@ -1,14 +1,51 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+
 {% block content %}
-<form method = "POST">
+
+<h2>Create Service</h2>
+
+<form method="POST">
     {% csrf_token %}
-    {{form|crispy}}
-     {% comment %} {{form.serviceName | as_crispy_field}}
-     {{form.serviceDescription | as_crispy_field}}
-     {{form.servicePrice | as_crispy_field}}
-     {{form.categoryId | as_crispy_field}} {% endcomment %}
-     
+
+    <div>
+        {{ form.serviceName|as_crispy_field }}
+        {% if form.serviceName.errors %}
+            <div style="color:red;">
+                {{ form.serviceName.errors }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div>
+        {{ form.serviceDescription|as_crispy_field }}
+        {% if form.serviceDescription.errors %}
+            <div style="color:red;">
+                {{ form.serviceDescription.errors }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div>
+        {{ form.servicePrice|as_crispy_field }}
+        {% if form.servicePrice.errors %}
+            <div style="color:red;">
+                {{ form.servicePrice.errors }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div>
+        {{ form.categoryId|as_crispy_field }}
+        {% if form.categoryId.errors %}
+            <div style="color:red;">
+                {{ form.categoryId.errors }}
+            </div>
+        {% endif %}
+    </div>
+
     <input type="submit" value="Submit">
+
 </form>
+
 {% endblock %}
